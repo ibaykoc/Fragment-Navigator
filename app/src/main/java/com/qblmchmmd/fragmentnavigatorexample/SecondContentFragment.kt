@@ -26,4 +26,16 @@ class SecondContentFragment : LoggedNavigatorChild() {
         super.onCreateOptionsMenu(menu, inflater)
         inflater?.inflate(R.menu.second_content_toolbar_menu, menu)
     }
+
+    override fun onOptionsItemSelected(item: MenuItem?): Boolean {
+        return item?.let {
+            when (item.itemId) {
+                R.id.secondContentToolbarMenuShare -> {
+                    Log.d(lTag, "Share toolbar menu selected")
+                    true
+                }
+                else -> false
+            }
+        } ?: false
+    }
 }

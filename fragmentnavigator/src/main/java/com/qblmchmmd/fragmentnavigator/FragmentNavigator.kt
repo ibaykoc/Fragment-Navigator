@@ -33,6 +33,10 @@ class FragmentNavigator : Fragment() {
         getTopStackFragment().onCreateOptionsMenu(menu, inflater)
     }
 
+    override fun onOptionsItemSelected(item: MenuItem?): Boolean {
+        return getTopStackFragment().onOptionsItemSelected(item)
+    }
+
     fun getTopStackFragment(): FragmentNavigatorChild {
         return childFragmentManager.fragments.last() as FragmentNavigatorChild
     }
@@ -68,7 +72,7 @@ class FragmentNavigator : Fragment() {
         return false
     }
 
-    fun backStart() {
+    fun backToStart() {
         if (childFragmentManager.backStackEntryCount > 1) {
             val toShowFragment =
                     childFragmentManager.fragments[childFragmentManager.fragments.size - 2] as FragmentNavigatorChild

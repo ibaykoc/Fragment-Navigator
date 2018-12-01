@@ -38,4 +38,16 @@ class FirstContentFragment : LoggedNavigatorChild() {
         super.onCreateOptionsMenu(menu, inflater)
         inflater?.inflate(R.menu.first_content_toolbar_menu, menu)
     }
+
+    override fun onOptionsItemSelected(item: MenuItem?): Boolean {
+        return item?.let {
+            when (item.itemId) {
+                R.id.firstContentToolbarMenuSearch -> {
+                    Log.d(lTag, "Search toolbar menu selected")
+                    true
+                }
+                else -> false
+            }
+        } ?: false
+    }
 }

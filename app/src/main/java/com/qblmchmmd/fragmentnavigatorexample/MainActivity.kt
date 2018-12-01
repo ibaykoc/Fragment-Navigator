@@ -2,6 +2,7 @@ package com.qblmchmmd.fragmentnavigatorexample
 
 import android.os.Bundle
 import android.view.Menu
+import android.view.MenuItem
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import com.qblmchmmd.fragmentnavigator.FragmentNavigator
@@ -26,6 +27,10 @@ class MainActivity : AppCompatActivity() {
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
         mainContentFragment.onCreateOptionsMenu(menu, menuInflater)
         return true
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        return mainContentFragment.onOptionsItemSelected(item)
     }
 
     private fun setContent(fragment: Fragment) {
